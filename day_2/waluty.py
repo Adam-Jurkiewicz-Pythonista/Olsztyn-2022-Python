@@ -6,8 +6,10 @@ https://requests.readthedocs.io/en/latest/
 """
 
 import requests
+import matplotlib.pyplot as plt
+
 waluta = "usd"
-data_od = "2022-09-01"
+data_od = "2021-12-01"
 data_do = "2022-12-01"
 api_link = f"http://api.nbp.pl/api/exchangerates/rates/a/{waluta}/{data_od}/{data_do}/?format=json"
 
@@ -15,3 +17,14 @@ r_api = requests.get(api_link)
 print(r_api)
 dane = r_api.json()
 print(dane)
+wartosci = []
+
+for day in dane["rates"]:
+    wartosci.append(day["mid"])
+
+print(wartosci)
+x_points = [x for x in range(len(wartosci)) ]
+
+plt.plot(x_points, wartosci)
+plt.grid()
+plt.show()
