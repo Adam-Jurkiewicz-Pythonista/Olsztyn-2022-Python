@@ -1,12 +1,12 @@
 from datetime import datetime
-from matplotlib import pyplot
+import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from random import randrange
 
 x_data, y_data = [], []
 
-figure = pyplot.figure()
-line, = pyplot.plot_date(x_data, y_data, '-')
+figure = plt.figure()
+line, = plt.plot_date(x_data, y_data, '-')
 
 def update(frame):
     x_data.append(datetime.now())
@@ -16,6 +16,6 @@ def update(frame):
     figure.gca().autoscale_view()
     return line,
 
-animation = FuncAnimation(figure, update, interval=200)
+animation = FuncAnimation(figure, update, interval=1000)
 
-pyplot.show()
+plt.show()
