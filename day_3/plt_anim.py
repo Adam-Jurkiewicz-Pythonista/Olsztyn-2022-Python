@@ -6,7 +6,12 @@ from random import randrange
 x_data, y_data = [], []
 
 figure = plt.figure()
+
 line, = plt.plot_date(x_data, y_data, '-')
+# line = plt.plot_date(x_data, y_data, '-')[0]
+
+print(type(line))
+print(f"{line=}")
 
 def update(frame):
     x_data.append(datetime.now())
