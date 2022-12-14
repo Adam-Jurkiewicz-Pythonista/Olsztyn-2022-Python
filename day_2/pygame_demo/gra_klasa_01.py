@@ -4,15 +4,15 @@ from random import randint
 WIDTH = 640
 HEIGHT = 425
 TITLE = "Moja gra"
-kroki = 3
+
 
 
 class Bohater:
     def __init__(self, hero, keyb, krok):
         self.my_actor = hero
         self.u, self.d, self.l, self.r = tuple(keyb)
-        self.step = kroki
-        self.my_actor.pos = ( randint(kroki, 600) , randint(kroki, 400) )
+        self.step = krok
+        self.my_actor.pos = ( randint(1, 600) , randint(1, 400) )
 
     def draw(self):
         self.my_actor.draw()
