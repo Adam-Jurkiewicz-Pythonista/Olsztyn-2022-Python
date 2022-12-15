@@ -38,7 +38,11 @@
     <!--- Komentarz --->
     <h4>SUPER - mamy dane zwrócone o Twoim IP:</h4>
     <hr>
-    <h5> {{ dane_geo }} </h5>
+    <h5>
+        {% for key, value in dane_geo['ok'].items() %}
+        <h6>{{ key }}</h6> : {{ value }}
+        {% endfor %}
+    </h5>
     <br>
     <pre>https://strona.com/150.254.65.7</pre>
 
