@@ -12,3 +12,5 @@ from flask import request
 request.remote_addr
 request.environ['REMOTE_ADDR']
 ```
+
+Jeśli starczy czasu to deployment na Heroku
