@@ -37,6 +37,7 @@ def request_test_danej(value):
                            address=request.remote_addr,
                            user_value=value)
 
+
 # http://127.0.0.1:5000/test_req_args/?a=3&b=45&ip=192.168.10.1
 @app.route("/test_req_args/")
 def request_test_args():
@@ -46,6 +47,13 @@ def request_test_args():
                            address=request.remote_addr,
                            user_value=request.args.to_dict())
 
+# Domyślne wartości parametrów:
+@app.route('/index/', defaults={'subject' : ... })
+@app.route('/index/<subject>')
+def subject(subject):
+    if subject is Ellipsis:
+        subject = datetime.now().strftime("%c")
+    return f"<h3>Subject is {subject}</h3>"
 
 if __name__ == "__main__":
     app.run(debug=True)
