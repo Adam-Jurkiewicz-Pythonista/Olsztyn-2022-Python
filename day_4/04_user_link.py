@@ -37,6 +37,15 @@ def request_test_danej(value):
                            address=request.remote_addr,
                            user_value=value)
 
+# http://127.0.0.1:5000/test_req_args/?a=3&b=45&ip=192.168.10.1
+@app.route("/test_req_args/")
+def request_test_args():
+    return render_template("val.html",
+                           czas=datetime.now(),
+                           headers=request.headers,
+                           address=request.remote_addr,
+                           user_value=request.args.to_dict())
+
 
 if __name__ == "__main__":
     app.run(debug=True)
