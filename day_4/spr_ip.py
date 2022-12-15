@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 def spr_geoip(ip: str) -> dict:
     base_url = f"http://api.ipstack.com/{ip}?access_key=e9e50_your_access_key"
+    # for free access: https://ipstack.com/signup/free
     try:
         api_response = api_get.get(base_url)
     except Exception as e:
